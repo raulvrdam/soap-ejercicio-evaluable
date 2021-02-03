@@ -19,6 +19,7 @@ public class BookEndpoint
         this.BookRepository = BookRepository;
     }
  
+    // Devuelve los datos del libro buscado
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "BookDetailsRequest")
     @ResponsePayload
     public BookDetailsResponse getBook(@RequestPayload BookDetailsRequest request) {
@@ -28,6 +29,7 @@ public class BookEndpoint
         return response;
     }
     
+    // Devuelve el precio del libro buscado
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "BookPriceRequest")
     @ResponsePayload
     public BookPriceResponse getBook(@RequestPayload BookPriceRequest request) {
@@ -37,20 +39,32 @@ public class BookEndpoint
         return response;
     }
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "IsbnNameBookRequest")
+    // Devuelve el ISBN del libro buscado
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "BookIsbnRequest")
     @ResponsePayload
-    public IsbnNameBookResponse getBook(@RequestPayload IsbnNameBookRequest request) {
-    	IsbnNameBookResponse response = new IsbnNameBookResponse();
-        response.setName(BookRepository.findBook(request.getIsbn()).getName());
+    public BookIsbnResponse getBook(@RequestPayload BookIsbnRequest request) {
+    	BookIsbnResponse response = new BookIsbnResponse();
+        response.setIsbn(BookRepository.findBook(request.getName()).getIsbn());
  
         return response;
     }
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AuthorsBookRequest")
+    // Devuelve los datos del autor buscado
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AuthorDetailsRequest")
     @ResponsePayload
-    public AuthorsBookResponse getBook(@RequestPayload AuthorsBookRequest request) {
-    	AuthorsBookResponse response = new AuthorsBookResponse();
-        response.setBook(BookRepository.findBook(request.getAuthor()));
+    public AuthorDetailsResponse getAuthor(@RequestPayload AuthorDetailsRequest request) {
+    	AuthorDetailsResponse response = new AuthorDetailsResponse();
+        response.setAuthor(BookRepository.findAuthor(request.getName()));
+ 
+        return response;
+    }
+    
+    // Devuelve el nº de libros del autor buscado
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AuthorNumberBooksRequest")
+    @ResponsePayload
+    public AuthorNumberBooksResponse getBook(@RequestPayload AuthorNumberBooksRequest request) {
+    	AuthorNumberBooksResponse response = new AuthorNumberBooksResponse();
+        response.setBooks(BookRepository.findAuthor(request.getName()).getBooks());
  
         return response;
     }

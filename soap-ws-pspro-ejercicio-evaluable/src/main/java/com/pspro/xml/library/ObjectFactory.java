@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.02.02 a las 05:37:30 PM CET 
+// Generado el: 2021.02.03 a las 06:39:44 AM CET 
 //
 
 
@@ -45,27 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AuthorResponse }
+     * Create an instance of {@link AuthorNumberBooksRequest }
      * 
      */
-    public AuthorResponse createAuthorResponse() {
-        return new AuthorResponse();
-    }
-
-    /**
-     * Create an instance of {@link Author }
-     * 
-     */
-    public Author createAuthor() {
-        return new Author();
-    }
-
-    /**
-     * Create an instance of {@link AuthorRequest }
-     * 
-     */
-    public AuthorRequest createAuthorRequest() {
-        return new AuthorRequest();
+    public AuthorNumberBooksRequest createAuthorNumberBooksRequest() {
+        return new AuthorNumberBooksRequest();
     }
 
     /**
@@ -77,35 +61,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link IsbnNameBookRequest }
-     * 
-     */
-    public IsbnNameBookRequest createIsbnNameBookRequest() {
-        return new IsbnNameBookRequest();
-    }
-
-    /**
      * Create an instance of {@link BookPriceRequest }
      * 
      */
     public BookPriceRequest createBookPriceRequest() {
         return new BookPriceRequest();
-    }
-
-    /**
-     * Create an instance of {@link AuthorsBookResponse }
-     * 
-     */
-    public AuthorsBookResponse createAuthorsBookResponse() {
-        return new AuthorsBookResponse();
-    }
-
-    /**
-     * Create an instance of {@link Book }
-     * 
-     */
-    public Book createBook() {
-        return new Book();
     }
 
     /**
@@ -117,19 +77,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AuthorsBookRequest }
+     * Create an instance of {@link Book }
      * 
      */
-    public AuthorsBookRequest createAuthorsBookRequest() {
-        return new AuthorsBookRequest();
+    public Book createBook() {
+        return new Book();
     }
 
     /**
-     * Create an instance of {@link IsbnNameBookResponse }
+     * Create an instance of {@link BookIsbnResponse }
      * 
      */
-    public IsbnNameBookResponse createIsbnNameBookResponse() {
-        return new IsbnNameBookResponse();
+    public BookIsbnResponse createBookIsbnResponse() {
+        return new BookIsbnResponse();
+    }
+
+    /**
+     * Create an instance of {@link AuthorDetailsResponse }
+     * 
+     */
+    public AuthorDetailsResponse createAuthorDetailsResponse() {
+        return new AuthorDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link Author }
+     * 
+     */
+    public Author createAuthor() {
+        return new Author();
+    }
+
+    /**
+     * Create an instance of {@link BookIsbnRequest }
+     * 
+     */
+    public BookIsbnRequest createBookIsbnRequest() {
+        return new BookIsbnRequest();
+    }
+
+    /**
+     * Create an instance of {@link AuthorDetailsRequest }
+     * 
+     */
+    public AuthorDetailsRequest createAuthorDetailsRequest() {
+        return new AuthorDetailsRequest();
+    }
+
+    /**
+     * Create an instance of {@link AuthorNumberBooksResponse }
+     * 
+     */
+    public AuthorNumberBooksResponse createAuthorNumberBooksResponse() {
+        return new AuthorNumberBooksResponse();
     }
 
 }

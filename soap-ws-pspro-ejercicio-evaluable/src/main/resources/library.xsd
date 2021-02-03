@@ -10,7 +10,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
 	<xs:element name="BookDetailsResponse">
 		<xs:complexType>
 			<xs:sequence>
@@ -19,39 +18,14 @@
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="AuthorRequest">
+	<xs:element name="BookIsbnRequest">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="name" type="xs:string" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
-	<xs:element name="AuthorResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Author" type="tns:Author" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
-	<xs:element name="AuthorsBookRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="author" type="xs:string" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
-	<xs:element name="AuthorsBookResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Book" type="tns:Book" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
-	<xs:element name="IsbnNameBookRequest">
+	<xs:element name="BookIsbnResponse">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="isbn" type="xs:string" />
@@ -59,14 +33,6 @@
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="IsbnNameBookResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="name" type="xs:string" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
 	<xs:element name="BookPriceRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -74,11 +40,40 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
 	<xs:element name="BookPriceResponse">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="price" type="xs:decimal" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="AuthorDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AuthorDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Author" type="tns:Author" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="AuthorNumberBooksRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AuthorNumberBooksResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="books" type="xs:int" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
