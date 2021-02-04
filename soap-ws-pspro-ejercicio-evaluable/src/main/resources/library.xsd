@@ -3,6 +3,7 @@
 	targetNamespace="http://www.pspro.com/xml/library"
 	elementFormDefault="qualified">
 
+	<!-- Devuelve los datos del libro buscado -->
 	<xs:element name="BookDetailsRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -18,6 +19,7 @@
 		</xs:complexType>
 	</xs:element>
 
+	<!-- Devuelve el ISBN del libro buscado -->
 	<xs:element name="BookIsbnRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -33,6 +35,7 @@
 		</xs:complexType>
 	</xs:element>
 
+	<!-- Devuelve el precio del libro buscado -->
 	<xs:element name="BookPriceRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -47,7 +50,24 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	
+	<!-- Devuelve el nombre del libro buscado -->
+	<xs:element name="BookWithIsbnRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="isbn" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BookWithIsbnResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 
+	<!-- Devuelve los datos del autor buscado -->
 	<xs:element name="AuthorDetailsRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -62,7 +82,8 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
+	<!-- Devuelve el nº de libros del autor buscado -->
 	<xs:element name="AuthorNumberBooksRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -78,6 +99,7 @@
 		</xs:complexType>
 	</xs:element>
 
+	<!-- Elemento complejo: Libro -->
 	<xs:complexType name="Book">
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" />
@@ -90,6 +112,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<!-- Elemento complejo: Autor -->
 	<xs:complexType name="Author">
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" />
