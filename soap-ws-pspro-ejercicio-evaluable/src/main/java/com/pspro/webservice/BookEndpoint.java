@@ -8,18 +8,18 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import com.pspro.xml.library.*;
 
 /** 
- * @author Raúl Vázquez Ramos
+ * @author Raul Vazquez Ramos
  * @version 03/02/2021-2
  */
 @Endpoint
 public class BookEndpoint {
 	private static final String NAMESPACE_URI = "http://www.pspro.com/xml/library";
 
-	private BookRepository BookRepository;
+	private BookRepository bookRepository;
 
 	@Autowired
-	public BookEndpoint(BookRepository BookRepository) {
-		this.BookRepository = BookRepository;
+	public BookEndpoint(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
 	}
 
 	/** 
@@ -29,7 +29,7 @@ public class BookEndpoint {
 	@ResponsePayload
 	public BookDetailsResponse getBook(@RequestPayload BookDetailsRequest request) {
 		BookDetailsResponse response = new BookDetailsResponse();
-		response.setBook(BookRepository.findBook(request.getName()));
+		response.setBook(bookRepository.findBook(request.getName()));
 
 		return response;
 	}
@@ -41,7 +41,7 @@ public class BookEndpoint {
 	@ResponsePayload
 	public BookPriceResponse getBook(@RequestPayload BookPriceRequest request) {
 		BookPriceResponse response = new BookPriceResponse();
-		response.setPrice(BookRepository.findBook(request.getName()).getPrice());
+		response.setPrice(bookRepository.findBook(request.getName()).getPrice());
 
 		return response;
 	}
@@ -53,7 +53,7 @@ public class BookEndpoint {
 	@ResponsePayload
 	public BookIsbnResponse getBook(@RequestPayload BookIsbnRequest request) {
 		BookIsbnResponse response = new BookIsbnResponse();
-		response.setIsbn(BookRepository.findBook(request.getName()).getIsbn());
+		response.setIsbn(bookRepository.findBook(request.getName()).getIsbn());
 
 		return response;
 	}
@@ -65,7 +65,7 @@ public class BookEndpoint {
 	@ResponsePayload
 	public BookWithIsbnResponse getBook(@RequestPayload BookWithIsbnRequest request) {
 		BookWithIsbnResponse response = new BookWithIsbnResponse();
-		response.setName(BookRepository.findBookWithIsbn(request.getIsbn()));
+		response.setName(bookRepository.findBookWithIsbn(request.getIsbn()));
 
 		return response;
 	}
@@ -75,9 +75,9 @@ public class BookEndpoint {
 	 */
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "AuthorDetailsRequest")
 	@ResponsePayload
-	public AuthorDetailsResponse getAuthor(@RequestPayload AuthorDetailsRequest request) {
+	public AuthorDetailsResponse getAuthor(@RequestPayload AuthorDetailsRequest request){
 		AuthorDetailsResponse response = new AuthorDetailsResponse();
-		response.setAuthor(BookRepository.findAuthor(request.getName()));
+		response.setAuthor(bookRepository.findAuthor(request.getName()));
 
 		return response;
 	}
@@ -89,7 +89,7 @@ public class BookEndpoint {
 	@ResponsePayload
 	public AuthorNumberBooksResponse getBook(@RequestPayload AuthorNumberBooksRequest request) {
 		AuthorNumberBooksResponse response = new AuthorNumberBooksResponse();
-		response.setBooks(BookRepository.findAuthor(request.getName()).getBooks());
+		response.setBooks(bookRepository.findAuthor(request.getName()).getBooks());
 
 		return response;
 	}

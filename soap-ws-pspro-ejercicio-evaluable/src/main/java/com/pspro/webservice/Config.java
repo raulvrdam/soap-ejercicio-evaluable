@@ -12,17 +12,21 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
  
+/** 
+ * @author Raul Vazquez Ramos
+ * @version 07/02/2021-1
+ */
 @EnableWs
 @Configuration
 public class Config extends WsConfigurerAdapter 
 {
     @Bean
-    public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) 
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) 
     {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/service/*");
+        return new ServletRegistrationBean<>(servlet, "/service/*");
     }
  
     @Bean(name = "BookDetailsWsdl")

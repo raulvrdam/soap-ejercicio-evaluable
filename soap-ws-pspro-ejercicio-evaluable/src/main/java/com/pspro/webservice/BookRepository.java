@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 import com.pspro.xml.library.*;
 
 /** 
- * @author RawVR
- * @version 03/02/2021-2
+ * @author Raul Vazquez Ramos
+ * @version 07/02/2021-1
  */
 @Component
 public class BookRepository {
-	private static final ArrayList<Book> books = new ArrayList<Book>();
-	private static final ArrayList<Author> authors = new ArrayList<Author>();
+	private static final ArrayList<Book> books = new ArrayList<>();
+	private static final ArrayList<Author> authors = new ArrayList<>();
 
 	/**
 	 * Función que inicializa una serie de libros y autores para el testeo
@@ -104,10 +104,17 @@ public class BookRepository {
 	 */
 	public Book findBook(String name) {
 		Book book = new Book();
+		book.setPages(-1);
+		book.setPrice(BigDecimal.valueOf(-1));
 		for (Book b : books) {
-			if (b.getName().equals(name))
+			if (b.getName().equals(name)) {
 				book = b;
+				break;
+			}
 		}
+		if(book.getPages() == -1)
+			book.setName("El libro con el nombre "+ name +" no existe");
+		
 		return book;
 	}
 
@@ -117,24 +124,17 @@ public class BookRepository {
 	 */
 	public String findBookWithIsbn(String isbn) {
 		Book book = new Book();
+		book.setPages(-1);
 		for (Book b : books) {
-			if (b.getIsbn().equals(isbn))
+			if (b.getIsbn().equals(isbn)) {
 				book = b;
+				break;
+			}
 		}
+		if(book.getPages() == -1)
+			book.setName("El libro con el isbn "+ isbn +" no existe");
+			
 		return book.getName();
-	}
-
-	/** 
-	 * @return Devuelve una lista de libros que contentan el genero proporcionado
-	 * @param genre Contiene el genero que se buscará entre los libros de la lista de libros
-	 */
-	public ArrayList<Book> findBookWithGenre(String genre) {
-		ArrayList<Book> booksWithGenre = new ArrayList<Book>();
-		for (Book b : books) {
-			if (b.getGenre().contains(genre))
-				booksWithGenre.add(b);
-		}
-		return booksWithGenre;
 	}
 
 	/** 
@@ -143,10 +143,17 @@ public class BookRepository {
 	 */
 	public Author findAuthor(String name) {
 		Author author = new Author();
+		author.setBooks(-1);
 		for (Author a : authors) {
-			if (a.getName().equals(name))
+			if (a.getName().equals(name)) {
 				author = a;
+				break;
+			}
+				
 		}
+		if(author.getBooks() == -1)
+			author.setName("El autor con el nombre "+ name +" no existe");
+		
 		return author;
 	}
 }
